@@ -1,0 +1,547 @@
+.dashboard-wrapper
+{
+    width:100%;
+    height:100vh;
+    display:flex;
+    background: linear-gradient(135deg, white,bisque);
+    overflow: hidden;
+}
+.side-bar
+{
+    width:19%;
+    background: #342b2b;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.side-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.main-container
+{
+    width:81%;
+    background-color: #fef7f0;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+.profile-info
+{
+    display:flex;
+    padding: 20px;
+     align-items:center;
+     margin-top:10px;
+     gap:20px;
+     border-bottom: 1px solid rgba(255,255,255,0.2);
+     margin-bottom: 20px;
+}
+.profile-info img{
+    height:80px;
+    width: 80px;
+    border-radius:50%;
+    margin-right:9px;
+    border: 3px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.profile-info p {
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+.profile-info .user-email {
+  color: #fbbf24;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.profile-info .company-name {
+  color: black;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.profile-info button{
+    padding:8px 16px;
+    cursor:pointer;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.menu{
+    margin-top:25px;
+    display:flex;
+    gap:12px;
+    flex-direction : column;
+    padding: 0 20px;
+}
+.menu-Link {
+  color: #ffffff;
+  width: 100%;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-Link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.menu-Link:hover::before {
+  left: 100%;
+}
+
+.menu-Link:hover, .menu-Link.active {
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  color: white;
+  font-weight: 600;
+  transform: translateX(8px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+}
+.new-invoice-heading
+{
+     font-size:20px;
+     color: black;
+     font-weight: 700;
+     margin-top:15px;
+     margin-left:15px;
+     margin-bottom: 10px;
+     letter-spacing: -0.3px;
+}
+.first-row
+{
+    display:flex;
+    gap:2.5%;
+    margin-top:15px;
+    margin-left:15px;
+    margin-right: 15px;
+}
+.first-row input{
+    padding:12px 16px;
+    width:31.8%;
+    border: 2px solid #e2e8f0;
+    border-radius:12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    color: black;
+}
+
+.first-row input:focus {
+    outline: none;
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+    transform: translateY(-1px);
+}
+
+.first-row input::placeholder {
+    color: #9ca3af;
+}
+
+.add-btn
+{
+    margin-top:15px;
+    margin-left:15px;
+    border: none;
+    border-radius:12px;
+    width: 120px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff4500 100%);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.add-btn:hover {
+    background: linear-gradient(135deg, #ff4500 0%, #e63900 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+.product-wrapper
+{
+    width: calc(100% - 30px);
+    padding: 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    min-height: 300px;
+    border-radius: 12px;
+    border: 1px solid #ff6b35;
+}
+
+.product-list
+{
+    display:flex;
+}
+
+.product-list p{
+    text-align:left;
+    width:20%;
+}
+
+.total-wrapper{
+    margin-top: 40px;
+    display:flex;
+    justify-content:flex-end;
+    border-top: 2px solid #ff6b35;
+    padding: 20px;
+    background: #fef7f0;
+    border-radius: 0 0 12px 12px;
+}
+
+.total-wrapper p{
+    width:20%;
+    color: #ff6b35;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+}
+
+.header-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header-row button{
+    background-color: #ff6b35;
+    border-radius:0px;
+    margin-right:20px;
+}
+
+.box
+{
+    display:flex;
+    gap :20px;
+    background-color: white;
+    margin-top:10px;
+    padding:20px;
+}
+
+.box p{
+    width: 20%;
+    text-transform: capitalize;
+}
+
+.del-button{
+    padding:5px;
+    background-color: rgb(183, 77, 77);
+    color:white;
+    border:none; 
+    cursor: pointer;
+}
+
+.view-button{
+    background-color: #ff8c42;
+}
+
+.invoice-wrapper
+{
+    width:50%;
+    background-color: white;
+    min-height: 90vh;
+    margin:auto;
+    margin-top:20px;
+    padding:20px;
+}
+
+.invoice-header
+{
+    display:flex;
+    justify-content: space-between;
+   
+}
+
+.company-logo
+{
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    box-shadow: 2px 1px 10px #333;
+    margin-bottom: 10px;
+}
+
+.customer-detail h1{
+    color:#ff6b35;
+    margin-bottom:10px;
+}
+.cName
+{
+    font-weight:bold;
+    color:#333;
+    text-transform:uppercase;
+    font-size: 20px;
+}
+
+.product-table{
+    margin-top: 20px;
+    width:100%;
+    border-collapse:collapse;
+}
+th{
+    background-color: #ff6b35;
+    color:white;
+}
+th,td{
+    border:1px solid #333;
+    padding:10px;
+    text-align:left;
+}
+tfoot{
+    background-color: #ff6b35;
+    color:white;
+}
+
+.invoice-top-header
+{
+    display:flex;
+    justify-content:flex-end;
+    margin-right:10px;
+    margin-top:10px;
+  
+}
+
+.print-btn{
+    border:none;
+    background-color: #ff6b35;
+    color:white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.setting-wrapper
+{
+    width:80%;
+    min-height: 300px;
+    margin:auto;
+    background-color: white;
+    margin-top: 50px;
+}
+
+
+.update-cName
+{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.update-cName input{
+    width:80%;
+    padding:10px;
+}
+
+.update-cName button{
+    width:80%;
+    padding:10px;
+    border:none;
+    background-color: #ff6b35;
+    color:white;
+    cursor:pointer;
+}
+    
+.home-first-row
+{
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+    justify-content:space-between;
+}
+
+.home-box
+{
+    width:32%;
+    height:28vh;
+   /* background-color: red;*/
+   border-radius:10px;
+   margin-left:4px;
+   display:flex;
+   flex-direction:column;
+   justify-content: center;
+   align-items:center;
+   gap:10px;
+   margin-top:4px;
+   transition: all 0.3s ease;
+   cursor: pointer;
+}
+
+.home-box:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.box-1
+{
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.box-1:hover {
+    background: linear-gradient(135deg, #e63900, #ff6b35);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+}
+
+.box-2
+{
+    background: linear-gradient(135deg, #ff8c42, #ffa366);
+    box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+}
+
+.box-2:hover {
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    box-shadow: 0 8px 25px rgba(255, 140, 66, 0.5);
+}
+
+.box-3
+{
+    background: linear-gradient(135deg, #ffa366, #ffb380);
+    box-shadow: 0 4px 15px rgba(255, 163, 102, 0.3);
+}
+
+.box-3:hover {
+    background: linear-gradient(135deg, #ff8c42, #ffa366);
+    box-shadow: 0 8px 25px rgba(255, 163, 102, 0.5);
+}
+
+.home-second-row{
+    display:flex;
+    margin-top:50px;
+    justify-content:space-between;
+
+}
+
+.chart-box{
+    width:60%;
+    height:60vh;
+    background-color: white;
+    border-radius:10px;
+    margin-left:4px;
+}
+
+.recent-invoice-list{
+    width:35%;
+    height:60vh;
+    background-color: white;
+    border-radius:10px;
+    margin-right:6px;
+}
+
+.box-header{
+    color: black;
+    font-weight: bold;
+}
+
+.box-title{
+    color: black;
+    font-weight: 600;
+}
+
+.recent-invoice-list h1{
+  font-size: 20px;
+  text-align:center;
+  padding:20px;
+  background-color: #ff6b35;
+  color:white;
+
+}
+
+.recent-invoice-list div{
+    font-size: 15px;
+    display:flex;
+    justify-content:space-between;
+    transition: all 0.3s ease;
+  }
+  .recent-invoice-list div:hover{
+    background: linear-gradient(90deg, #ffe5d9, #ffede6);
+    cursor:pointer;
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.2);
+    border-left: 3px solid #ff6b35;
+  }
+  
+  .recent-invoice-list p{
+    width:50%;
+    padding:10px;
+}
+
+.no-invoice-wrapper{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    gap:10px;
+}
+
+.no-invoice-wrapper p{
+    font-size: 18px;
+    color:red;
+}
+
+.no-invoice-wrapper button{
+    border:none;
+    padding:10px;
+    background-color:rgb(45,28,238);
+    color:white;
+    cursor:pointer;
+}
